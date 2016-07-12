@@ -1,0 +1,173 @@
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Edit Inventory
+                    <small>manage your list of stock</small>
+                </h1>
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li class="active">Edit Inventory</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Project One -->
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 well">
+            <form name="newCarForm" novalidate>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Car Name:</label>
+                        <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter the car's name." ng-model="newCar.name">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Car Description:</label>
+                        <textarea rows="10" cols="100" class="form-control" id="desc" required data-validation-required-message="Please enter the car's description." maxlength="999" ng-model="newCar.desc"></textarea>
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Price:</label>
+                        <input type="number" class="form-control" id="price" required data-validation-required-message="Please enter the car's price." ng-model="newCar.price">
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Reviews:</label>
+                        <input type="number" class="form-control" id="reviews" required data-validation-required-message="Please enter the number of car's reviews." ng-model="newCar.reviews">
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Stars:</label>
+                        <input type="number" class="form-control" id="stars" required data-validation-required-message="Please enter the car's stars." ng-model="newCar.stars">
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Front Image:</label>
+                        <input type="url" class="form-control" id="img_front" required data-validation-required-message="Please enter a url for the front image." ng-model="newCar.img.front">
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Side Image:</label>
+                        <input type="url" class="form-control" id="img_side" required data-validation-required-message="Please enter a url for the side image." ng-model="newCar.img.side">
+                    </div>
+                </div>
+
+                <div id="success"></div>
+                <!-- For success/fail messages -->
+                <button type="submit" class="btn btn-primary center-block" ng-click="addCar(newCar)">Save Stock Item</button>
+            </form>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Project Two -->
+    <div class="row">
+        <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="car in inventory track by $index">
+            <div class="thumbnail" ng-hide="isEditing($index)">
+                <div class="control-buttons">
+                    <button class="btn btn-sm btn-default" ng-click="remove($index)"><span class="glyphicon glyphicon-trash pull-right"></span></button>
+                    <button class="btn btn-sm btn-default" ng-click="edit($index)"><span class="glyphicon glyphicon-pencil pull-right"></span></button>
+                </div>
+                <div class="img_side">
+                    <img ng-src="{{car.img.side}}">
+                </div>
+                <div class="price">
+                    <h4>{{ car.price | currency }}</h4>
+                </div>
+                <div class="caption">
+                    <h4> {{ car.name }} </h4>
+                    <p> {{ car.desc }} </p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">{{ car.reviews }} reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+            <div class="edit-form" ng-show="isEditing($index)">
+                <form name="editCarForm" class="well" novalidate>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Car Name:</label>
+                            <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter the car's name." ng-model="car.name">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Car Description:</label>
+                            <textarea rows="10" cols="100" class="form-control" id="desc" required data-validation-required-message="Please enter the car's description." maxlength="999" ng-model="car.desc"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Price:</label>
+                            <input type="number" class="form-control" id="price" required data-validation-required-message="Please enter the car's price." ng-model="car.price">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Reviews:</label>
+                            <input type="number" class="form-control" id="reviews" required data-validation-required-message="Please enter the number of car's reviews." ng-model="car.reviews">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Stars:</label>
+                            <input type="number" class="form-control" id="stars" required data-validation-required-message="Please enter the car's stars." ng-model="car.stars">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Front Image:</label>
+                            <input type="url" class="form-control" id="img_front" required data-validation-required-message="Please enter a url for the front image." ng-model="car.img.front">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Side Image:</label>
+                            <input type="url" class="form-control" id="img_side" required data-validation-required-message="Please enter a url for the side image." ng-model="car.img.side">
+                        </div>
+                    </div>
+
+                    <div id="success"></div>
+                    <!-- For success/fail messages -->
+                    <button type="submit" class="btn btn-primary center-block" ng-click="update(car)"><span class="glyphicon glyphicon-floppy-disk"></span></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Estate of Kyle Katar 2016</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->

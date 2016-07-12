@@ -1,0 +1,52 @@
+body {
+    background: #444 url("../img/tactile_noise.png") repeat fixed center center;
+}
+
+.page-header {
+    color: #ddd;
+}
+
+.tagline {
+    color: indianred;
+    text-shadow: 0 0 4px #333;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus,
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: indianred;
+    text-shadow: 0 0 2px #333;
+}
+
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-brand:hover {
+    color: indianred;
+    text-shadow: 0 0 2px #333;
+}
+
+.thumbnail .img_side {
+    position: relative;
+}
+
+.thumbnail .img_side h4 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.thumbnail .img_side h4 span {
+    color: white;
+    font: bold 16px/30px Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    background: rgb(0, 0, 0);
+    /* fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+
+.carousel-caption h4 {
+    background: rgb(0, 0, 0);
+    /* fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+}

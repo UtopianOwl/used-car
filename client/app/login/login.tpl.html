@@ -1,0 +1,51 @@
+<!-- Login Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Dealer Login</h1>
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li class="active">Dealer Login</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+
+        <!-- login box -->
+        <div class="col-md-6 col-md-offset-3 well">
+            <form novalidate>
+                <div class="control-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" ng-model="user.username">
+                </div>
+                <br>
+                <div class="control-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" ng-model="user.password">
+                </div>
+                <br>
+                <button class="center-block btn btn-primary btn-lg" ng-click="login(user)">Login</button>
+            </form>
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row well">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Estate of Kyle Katar 2016</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->

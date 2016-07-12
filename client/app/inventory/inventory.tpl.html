@@ -1,0 +1,107 @@
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Inventory
+                    <small>our current stock</small>
+                </h1>
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li class="active">Inventory</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- /Page-content -->
+    <div class="row well">
+
+        <div class="col-xs-12">
+
+            <div class="row carousel-holder">
+
+                <div class="col-md-12">
+
+<!--
+                    <div id="car-carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#car-carousel" data-slide-to="$index" ng-class="{ 'active' : isActive($index) }" ng-repeat="car in inventory track by $index" ng-click="activeSlide = $index"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item" ng-class="{ 'active' : isActive($index) }" ng-repeat="car in inventory track by $index">
+                                <img class="slide-image" ng-src="{{car.img.front}}">
+                            </div>
+                        </div>
+                        <a class="left carousel-control" data-slide="prev" ng-click="nextSlide()">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" data-slide="next" ng-click="prevSlide()">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+-->
+
+                    <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                        <uib-slide ng-repeat="car in inventory track by $index" index="$index">
+                            <img ng-src="{{car.img.front}}" style="margin:auto;">
+                            <div class="carousel-caption">
+                                <h4>{{car.name}}</h4>
+                            </div>
+                        </uib-slide>
+                    </uib-carousel>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="car in inventory">
+                    <div class="thumbnail">
+                        <div class="img_side">
+                            <img ng-src="{{car.img.side}}">
+                            <h4 class="pull-right"><span>{{ car.price | currency }}</span></h4>
+                        </div>
+                        <div class="price">
+
+                        </div>
+                        <div class="caption">
+                            <h4> {{ car.name }} </h4>
+                            <p> {{ car.desc }} </p>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">{{ car.reviews }} reviews</p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /row -->
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row well">
+            <div class="col-sm-4">
+                <p>Copyright &copy; Estate of Kyle Katar 2016</p>
+            </div>
+            <div class="col-sm-4 col-sm-offset-4">
+                <a ui-sref="/login" class="pull-right">Dealer Login</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->

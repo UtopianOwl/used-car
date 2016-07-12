@@ -1,0 +1,78 @@
+<!-- Contact Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Address View
+                    <small>see who's contacted you</small>
+                </h1>
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li class="active">View Contacts</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+
+
+
+    <!-- Contact Form -->
+    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <div class="row well">
+        <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="contact in addressBook track by $index">
+           <div class="control-buttons">
+               <a ng-click="remove($index)"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+               <a ng-click="edit($index)"><span class="glyphicon glyphicon-pencil pull-right"></span></a>
+           </div>
+            <form name="sentMessage" id="contactForm" novalidate>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Full Name:</label>
+                        <p ng-hide="isEditing($index)"></p>
+                        <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name." ng-model="contact.name" ng-show="isEditing($index)">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Phone Number:</label>
+                        <p ng-hide="isEditing($index)"></p>
+                        <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number." ng-model="contact.phone" ng-show="isEditing($index)">
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Email Address:</label>
+                        <p ng-hide="isEditing($index)"></p>
+                        <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address." ng-model="contact.email" ng-show="isEditing($index)">
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Message:</label>
+                        <p ng-hide="isEditing($index)"></p>
+                        <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" ng-model="contact.message" ng-show="isEditing($index)"></textarea>
+                    </div>
+                </div>
+                <div id="success"></div>
+                <!-- For success/fail messages -->
+                <button type="submit" class="btn btn-primary" ng-click="addContact()" ng-show="isEditing($index)"><span class="glyphicon glyphicon-floppy-disk"></span></button>
+            </form>
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row well">
+            <p>Copyright &copy; Estate of Kyle Katar 2016</p>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->
