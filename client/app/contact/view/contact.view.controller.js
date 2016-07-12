@@ -1,4 +1,4 @@
-var app = angular.module("usedCarsApp", []);
+var app = angular.module("usedCarApp");
 
 app.controller("contactViewCtrl", ["$scope", "ContactService", function($scope, ContactService) {
     console.log("contact view controller");
