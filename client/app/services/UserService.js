@@ -16,6 +16,11 @@ app.service("UserService", ["$http", "$state", "TokenService", "$localStorage", 
     function removeUser() {
         delete $localStorage.user;
     }
+    
+    this.signup = function(user) {
+        console.log("signing up")
+        return $http.post("/user/signup", user);
+    };
 
     this.login = function (user) {
         console.log("logging in: " + user.username);
