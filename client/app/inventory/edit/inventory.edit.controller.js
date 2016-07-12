@@ -1,4 +1,4 @@
-var app = angular.module("usedCarApp");
+var app = angular.module("usedCarsApp", []);
 
 app.controller("inventoryEditCtrl", ["$scope", "CarService", function($scope, CarService) {
     console.log("inventory.edit controller");

@@ -1,4 +1,4 @@
-var app = angular.module("usedCarApp");
+var app = angular.module("usedCarsApp", []);
 
 app.service("TokenService", ["$localStorage", function($localStorage) {
     

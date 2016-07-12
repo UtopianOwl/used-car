@@ -1,4 +1,4 @@
-var app = angular.module("usedCarApp");
+var app = angular.module("usedCarsApp", []);
 
 app.directive("navbar", [function() {
     return {

@@ -1,4 +1,4 @@
-var app = angular.module("usedCarApp");
+var app = angular.module("usedCarsApp", []);
 
 app.service("UserService", ["$http", "$state", "TokenService", "$localStorage", function ($http, $state, TokenService, $localStorage) {
     var self = this;
